@@ -3,12 +3,18 @@ import { useQuery, gql } from "@apollo/client";
 
 const Homepage = () => {
 	const GET_VIDEOS = gql`
-		query allVideos {
-			videos {
-				id
-				name
-				description
-				poster
+		query allvideos {
+			allVideos {
+				items {
+					id
+					name
+					description
+					poster
+					mobilePoster
+					poster
+					url
+					duration
+				}
 			}
 		}
 	`;
@@ -18,7 +24,9 @@ const Homepage = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error </p>;
 
-	return data.videos.map(({ id, name, description, poster }) => (
+	console.log(data);
+
+	return data.allVideos.items.map(({ id, name, description, poster }) => (
 		<div key={id}>
 			<h3>{name}</h3>
 			<img
