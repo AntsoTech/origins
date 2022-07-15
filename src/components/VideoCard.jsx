@@ -10,15 +10,20 @@ const VideoCard = (video) => {
 					<img
 						alt={`${video.name}`}
 						src={`${video.poster}`}
-						className="videoCard__image"
+						className="videoCard__container__image"
 					/>
 				) : (
 					<img
 						alt={`${video.name}`}
 						src="https://maison.20minutes.fr/wp-content/uploads/2020/11/neon-manette-gaming-cdiscount.jpg"
-						className="videoCard__image"
+						className="videoCard__container__image"
 					/>
 				)}
+				<img
+					src="../assets/play.png"
+					alt="play"
+					className="videoCard__container__play"
+				/>
 			</div>
 		</div>
 	);

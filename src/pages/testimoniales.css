@@ -2,7 +2,7 @@
 	color: white;
     background-color: rgb(10, 10, 10);
     padding: 2vh 3vw;
-    height: 96vh;
+    min-height: 96vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -32,4 +32,26 @@
     border-bottom: white solid 0.5px;
     padding: 6px 0;
     cursor: pointer;
+}
+
+@media all and (max-width: 767px) {
+    .testimoniales {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 1023px) and (min-width: 768px){
+    .testimoniales {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+    }
+
+    .testimoniales__videolist {
+        justify-content: center;
+        gap: 10px;
+    }
 }
