@@ -36,7 +36,7 @@ const Homepage = () => {
 				src={`${poster}`}
 			/>
 			<br />
-			<b>About this location:</b>
+			<b>About :</b>
 			<p>{description}</p>
 			<br />
 		</div>
