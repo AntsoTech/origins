@@ -57,7 +57,7 @@ const Testimoniales = () => {
 
 	return (
 		<div className="testimoniales">
-			<h1 className="testimoniales__title"> Funzone </h1>
+			<h1 className="testimoniales__title"> Testimoniales </h1>
 			<div className="testimoniales__videolist">
 				{data.allVideos.items.map((video) => (
 					<VideoCard key={video.id} {...video} />

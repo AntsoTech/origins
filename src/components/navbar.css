@@ -1,0 +1,28 @@
+.navbar {
+    height: 50px;
+    width: 94vw;
+    padding: 0 3vw;
+    position: fixed;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__categories {
+    display: flex;
+    gap: 30px;
+    width: 70%;
+    align-self: flex-start;
+}
+
+.navbar__categories li {
+    color : white;
+    list-style: none;
+}
+
+.navbar__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}

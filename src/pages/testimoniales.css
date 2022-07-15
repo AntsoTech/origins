@@ -1,10 +1,9 @@
 .testimoniales {
 	color: white;
-    background-color: rgb(10, 10, 10);
-    padding: 2vh 3vw;
+    background-color: rgb(22, 22, 22);
+    padding: 70px 3vw;
     min-height: 96vh;
     display: flex;
-    align-items: center;
     flex-direction: column;
     gap: 30px;
 }
@@ -32,6 +31,8 @@
     border-bottom: white solid 0.5px;
     padding: 6px 0;
     cursor: pointer;
+    width: fit-content;
+    align-self: center;
 }
 
 @media all and (max-width: 767px) {

@@ -6,6 +6,7 @@
 
 .videoCard__title {
 	margin: 0;
+    padding-top: 1vh;
 }
 
 .videoCard__container {
@@ -39,6 +40,7 @@
         height: 240px;
 		margin: auto;
 		margin-top: 0;
+        margin-bottom: 4vh;
 	}
 
 	.videoCard__container {
