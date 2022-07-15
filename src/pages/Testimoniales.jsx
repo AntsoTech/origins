@@ -1,12 +1,13 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import VideoCard from "../components/VideoCard";
+import "./testimoniales.css";
 
 const Testimoniales = () => {
 	// Get testimoniales with Funzone tag and limit to 2
 	const GET_TESTIMONIALES = gql`
 		query ($after: String!) {
-			allVideos(limit: 3, after: $after) {
+			allVideos(tags: "Testimoniales", limit: 4, after: $after) {
 				items {
 					id
 					name
@@ -30,7 +31,7 @@ const Testimoniales = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error </p>;
 
-	// Create a fonction to load more
+	// Create a fonction to load more content and fetch the first query with the next one
 	const loadmore = () => {
 		fetchMore({
 			variables: {
@@ -62,9 +63,11 @@ const Testimoniales = () => {
 					<VideoCard key={video.id} {...video} />
 				))}
 			</div>
-			<button className="testimoniales__button" onClick={loadmore}>
-				Show more{" "}
-			</button>
+			{
+				<button className="testimoniales__button" onClick={loadmore}>
+					SHOW MORE
+				</button>
+			}
 		</div>
 	);
 };

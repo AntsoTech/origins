@@ -1,0 +1,35 @@
+.testimoniales {
+	color: white;
+    background-color: rgb(10, 10, 10);
+    padding: 2vh 3vw;
+    height: 96vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.testimoniales__title {
+    color: white;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.testimoniales__videolist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+.testimoniales__button{
+    color: white;
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: white solid 0.5px;
+    border-bottom: white solid 0.5px;
+    padding: 6px 0;
+    cursor: pointer;
+}
