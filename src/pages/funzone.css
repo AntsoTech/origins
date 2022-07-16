@@ -1,0 +1,63 @@
+.funzone {
+	color: white;
+    background-color: rgb(22, 22, 22);
+    padding: 70px 3vw;
+    min-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.funzone__title {
+    color: white;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.funzone__videolist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2vw;
+}
+
+.funzone__button{
+    color: white;
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: white solid 0.5px;
+    border-bottom: white solid 0.5px;
+    padding: 6px 0;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+}
+
+@media all and (max-width: 767px) {
+    .funzone {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .funzone__title {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+}
+
+@media all and (max-width: 1023px) and (min-width: 768px){
+    .funzone {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+    }
+
+    .funzone__videolist {
+        justify-content: center;
+        gap: 10px;
+    }
+}

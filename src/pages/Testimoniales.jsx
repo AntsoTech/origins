@@ -6,7 +6,7 @@ import { GET_TESTIMONIALES } from "../queries/GET_TESTIMONIALES";
 import { loadmore } from "../helpers/loadmore";
 
 const Testimoniales = () => {
-	// Using query to get testimoniales with Funzone tag and limit to 2
+	// Using query to get testimoniales with testimoniales tag and limit to 4
 	const { loading, error, data, fetchMore } = useQuery(GET_TESTIMONIALES, {
 		variables: { after: "" },
 	});
