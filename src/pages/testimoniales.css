@@ -19,7 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 14px;
+    gap: 2vw;
 }
 
 .testimoniales__button{
