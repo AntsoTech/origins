@@ -1,9 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import VideoCard from "../components/VideoCard";
-import "./testimoniales.css";
 import { GET_TESTIMONIALES } from "../queries/GET_TESTIMONIALES";
 import { loadmore } from "../helpers/loadmore";
+import { Link } from "react-router-dom";
+import "./testimoniales.css";
 
 const Testimoniales = () => {
 	// Using query to get testimoniales with testimoniales tag and limit to 4
@@ -19,7 +20,12 @@ const Testimoniales = () => {
 			<h1 className="testimoniales__title"> Testimoniales </h1>
 			<div className="testimoniales__videolist">
 				{data.allVideos.items.map((video) => (
-					<VideoCard key={video.id} {...video} />
+					<Link
+						to={`/videos/${video.id}`}
+						state={{ tag: "Testimoniales" }}
+						key={video.id}>
+						<VideoCard key={video.id} {...video} />
+					</Link>
 				))}
 			</div>
 			{
