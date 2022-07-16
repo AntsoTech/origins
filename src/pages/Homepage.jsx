@@ -1,24 +1,9 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import VideoCard from "../components/VideoCard";
+import { GET_VIDEOS } from "../queries/GET_VIDEOS";
 
 const Homepage = () => {
-	const GET_VIDEOS = gql`
-		query allvideos {
-			allVideos {
-				items {
-					id
-					name
-					description
-					poster
-					mobilePoster
-					poster
-					url
-					duration
-				}
-			}
-		}
-	`;
-
 	const { loading, error, data } = useQuery(GET_VIDEOS);
 
 	if (loading) return <p>Loading...</p>;
@@ -26,21 +11,17 @@ const Homepage = () => {
 
 	console.log(data);
 
-	return data.allVideos.items.map(({ id, name, description, poster }) => (
-		<div key={id}>
-			<h3>{name}</h3>
-			<img
-				width="400"
-				height="250"
-				alt="location-reference"
-				src={`${poster}`}
-			/>
-			<br />
-			<b>About :</b>
-			<p>{description}</p>
-			<br />
+	return (
+		<div className="homepage">
+			<h1 className="homepage__title"> HOMEPAGE </h1>
+			<div className="homepage__videolist">
+				{data.allVideos.items.map((video) => (
+					<VideoCard key={video.id} {...video} />
+				))}
+			</div>
+			{<button className="homepage__button">SHOW MORE</button>}
 		</div>
-	));
+	);
 };
 
 export default Homepage;

@@ -1,29 +1,11 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import VideoCard from "../components/VideoCard";
 import "./testimoniales.css";
+import { GET_TESTIMONIALES } from "../queries/GET_TESTIMONIALES";
 
 const Testimoniales = () => {
-	// Get testimoniales with Funzone tag and limit to 2
-	const GET_TESTIMONIALES = gql`
-		query ($after: String!) {
-			allVideos(tags: "Testimoniales", limit: 4, after: $after) {
-				items {
-					id
-					name
-					description
-					poster
-					mobilePoster
-					poster
-					url
-					duration
-				}
-				cursor {
-					after
-				}
-			}
-		}
-	`;
+	// Using query to get testimoniales with Funzone tag and limit to 2
 	const { loading, error, data, fetchMore } = useQuery(GET_TESTIMONIALES, {
 		variables: { after: "" },
 	});
