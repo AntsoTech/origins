@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import "./videohome.css";
 
-const VideoHome = (urlVideo) => {
+const VideoHome = ({ urlVideo, poster }) => {
 	return (
 		<div className="videohome">
 			<ReactPlayer
@@ -12,7 +12,7 @@ const VideoHome = (urlVideo) => {
 				width="100%"
 				height="100%"
 				url={urlVideo}
-				light="../assets/videohome.png"
+				light={poster}
 				className="videohome__player"
 			/>
 		</div>

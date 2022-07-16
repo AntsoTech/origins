@@ -4,6 +4,7 @@ import VideoCard from "../components/VideoCard";
 import "./funzone.css";
 import { GET_FUNZONE } from "../queries/GET_FUNZONE";
 import { loadmore } from "../helpers/loadmore";
+import { Link } from "react-router-dom";
 
 const Funzone = () => {
 	// Using query to get testimoniales with Funzone tag and limit to 2
@@ -19,7 +20,12 @@ const Funzone = () => {
 			<h1 className="funzone__title"> Funzone </h1>
 			<div className="funzone__videolist">
 				{data.allVideos.items.map((video) => (
-					<VideoCard key={video.id} {...video} />
+					<Link
+						to={`/videos/${video.id}`}
+						state={{ tag: "Funzone" }}
+						key={video.id}>
+						<VideoCard key={video.id} {...video} />
+					</Link>
 				))}
 			</div>
 			{
