@@ -17,6 +17,8 @@ const VideoCard = (video) => {
 						alt={`${video.name}`}
 						src="https://maison.20minutes.fr/wp-content/uploads/2020/11/neon-manette-gaming-cdiscount.jpg"
 						className="videoCard__container__image"
+						width="290px"
+						height="160px"
 					/>
 				)}
 				<img

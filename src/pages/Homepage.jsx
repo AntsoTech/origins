@@ -2,24 +2,34 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import VideoCard from "../components/VideoCard";
 import { GET_VIDEOS } from "../queries/GET_VIDEOS";
+import VideoHome from "../components/VideoHome";
+import "./homepage.css";
+import { loadmore } from "../helpers/loadmore";
 
 const Homepage = () => {
-	const { loading, error, data } = useQuery(GET_VIDEOS);
+	// Using query to get testimoniales with Funzone tag and limit to 2
+	const { loading, error, data, fetchMore } = useQuery(GET_VIDEOS, {
+		variables: { after: "" },
+	});
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error </p>;
-
-	console.log(data);
-
 	return (
 		<div className="homepage">
-			<h1 className="homepage__title"> HOMEPAGE </h1>
-			<div className="homepage__videolist">
-				{data.allVideos.items.map((video) => (
-					<VideoCard key={video.id} {...video} />
-				))}
+			<VideoHome />
+			<div className="homepage__allvideos">
+				<h1 className="homepage__allvideos__title"> ALL VIDEOS </h1>
+				<div className="homepage__allvideos__videolist">
+					{data.allVideos.items.map((video) => (
+						<VideoCard key={video.id} {...video} />
+					))}
+				</div>
+				<button
+					className="homepage__allvideos__button"
+					onClick={() => loadmore(data, fetchMore)}>
+					SHOW MORE
+				</button>
 			</div>
-			{<button className="homepage__button">SHOW MORE</button>}
 		</div>
 	);
 };

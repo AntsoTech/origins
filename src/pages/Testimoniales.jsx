@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import VideoCard from "../components/VideoCard";
 import "./testimoniales.css";
 import { GET_TESTIMONIALES } from "../queries/GET_TESTIMONIALES";
+import { loadmore } from "../helpers/loadmore";
 
 const Testimoniales = () => {
 	// Using query to get testimoniales with Funzone tag and limit to 2
@@ -13,30 +14,6 @@ const Testimoniales = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error </p>;
 
-	// Create a fonction to load more content and fetch the first query with the next one
-	const loadmore = () => {
-		fetchMore({
-			variables: {
-				after: data.allVideos.cursor.after,
-			},
-			updateQuery: (
-				previousResult,
-				{ fetchMoreResult, variables: { after } }
-			) => {
-				console.log(previousResult, fetchMoreResult);
-				return {
-					allVideos: {
-						cursor: fetchMoreResult.allVideos.cursor,
-						items: [
-							...previousResult.allVideos.items,
-							...fetchMoreResult.allVideos.items,
-						],
-					},
-				};
-			},
-		});
-	};
-
 	return (
 		<div className="testimoniales">
 			<h1 className="testimoniales__title"> Testimoniales </h1>
@@ -46,7 +23,9 @@ const Testimoniales = () => {
 				))}
 			</div>
 			{
-				<button className="testimoniales__button" onClick={loadmore}>
+				<button
+					className="testimoniales__button"
+					onClick={() => loadmore(data, fetchMore)}>
 					SHOW MORE
 				</button>
 			}
