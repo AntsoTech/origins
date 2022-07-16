@@ -63,8 +63,7 @@ function offsetFromCursor(items, cursor, readField) {
 	for (let i = items.length - 1; i >= 0; --i) {
 		const item = items[i];
 		if (readField("id", item) === cursor) {
-			// Add one because the cursor identifies the item just
-			// before the first item in the page we care about.
+			// Add one because the cursor identifies the item before the next item in the page
 			return i + 1;
 		}
 	}
