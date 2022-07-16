@@ -1,0 +1,34 @@
+.videodetails {
+    padding: 50px 0;
+    color: white;
+    background-color: rgb(22, 22, 22);
+    min-height: calc(100vh - 50px);
+}
+
+.videodetails__infos {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.videodetails__infos__name {
+    font-size: 2rem;
+}
+
+.videodetails__infos__duration {
+    font-size: 1rem;
+}
+
+.videodetails__videowrapper {
+width: 80vw;
+margin: auto;
+}
+
+.videodetails__description {
+    padding-top: 3vh;
+    width: 80vw;
+    margin: auto;
+}
+

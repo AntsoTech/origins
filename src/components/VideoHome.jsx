@@ -2,9 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import "./videohome.css";
 
-const VideoHome = () => {
-	const urlVideoHome =
-		"https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8";
+const VideoHome = (urlVideo) => {
 	return (
 		<div className="videohome">
 			<ReactPlayer
@@ -13,7 +11,7 @@ const VideoHome = () => {
 				muted
 				width="100%"
 				height="100%"
-				url={urlVideoHome}
+				url={urlVideo}
 				light="../assets/videohome.png"
 				className="videohome__player"
 			/>
