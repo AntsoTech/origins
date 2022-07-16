@@ -1,46 +1,37 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import VideoCard from "../components/VideoCard";
+import { GET_VIDEOS } from "../queries/GET_VIDEOS";
+import VideoHome from "../components/VideoHome";
+import "./homepage.css";
+import { loadmore } from "../helpers/loadmore";
 
 const Homepage = () => {
-	const GET_VIDEOS = gql`
-		query allvideos {
-			allVideos {
-				items {
-					id
-					name
-					description
-					poster
-					mobilePoster
-					poster
-					url
-					duration
-				}
-			}
-		}
-	`;
-
-	const { loading, error, data } = useQuery(GET_VIDEOS);
+	// Using query to get testimoniales with Funzone tag and limit to 2
+	const { loading, error, data, fetchMore } = useQuery(GET_VIDEOS, {
+		variables: { after: "" },
+	});
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error </p>;
-
-	console.log(data);
-
-	return data.allVideos.items.map(({ id, name, description, poster }) => (
-		<div key={id}>
-			<h3>{name}</h3>
-			<img
-				width="400"
-				height="250"
-				alt="location-reference"
-				src={`${poster}`}
-			/>
-			<br />
-			<b>About :</b>
-			<p>{description}</p>
-			<br />
+	return (
+		<div className="homepage">
+			<VideoHome />
+			<div className="homepage__allvideos">
+				<h1 className="homepage__allvideos__title"> ALL VIDEOS </h1>
+				<div className="homepage__allvideos__videolist">
+					{data.allVideos.items.map((video) => (
+						<VideoCard key={video.id} {...video} />
+					))}
+				</div>
+				<button
+					className="homepage__allvideos__button"
+					onClick={() => loadmore(data, fetchMore)}>
+					SHOW MORE
+				</button>
+			</div>
 		</div>
-	));
+	);
 };
 
 export default Homepage;

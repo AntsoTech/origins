@@ -42,6 +42,11 @@
         margin: auto;
         justify-content: center;
     }
+
+    .testimoniales__title {
+        text-align: center;
+        font-size: 1.3rem;
+    }
 }
 
 @media all and (max-width: 1023px) and (min-width: 768px){

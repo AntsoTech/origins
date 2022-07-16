@@ -1,0 +1,58 @@
+.homepage__allvideos {
+	color: white;
+    background-color: rgb(22, 22, 22);
+    padding: 70px 3vw;
+    min-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.homepage__allvideo__title {
+    color: white;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.homepage__allvideos__videolist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2vw;
+}
+
+.homepage__allvideos__button{
+    color: white;
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: white solid 0.5px;
+    border-bottom: white solid 0.5px;
+    padding: 6px 0;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+}
+
+@media all and (max-width: 767px) {
+    .homepage__allvideos {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 1023px) and (min-width: 768px){
+    .homepage__allvideos {
+        min-height: 100vh;
+        height: auto;
+        margin: auto;
+    }
+
+    .homepage__allvideos__videolist {
+        justify-content: center;
+        gap: 10px;
+    }
+}
