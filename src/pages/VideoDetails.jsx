@@ -7,11 +7,11 @@ import VideoCard from "../components/VideoCard";
 import { useParams, useLocation, Link } from "react-router-dom";
 import "./videodetails.css";
 
-const VideoDetails = (props) => {
+const VideoDetails = () => {
 	// Collect the video ID with params
 	const { idVideo } = useParams();
 
-	// Collect a state from link
+	// Collect a state from the previous link
 	const location = useLocation();
 	const state = location.state;
 
@@ -36,8 +36,14 @@ const VideoDetails = (props) => {
 	return (
 		<div className="videodetails">
 			<div className="videodetails__infos">
-				<h1 className="videodetails__infos__name">{data.video.name}</h1>
-				<h2 className="videodetails__infos__duration">
+				<h1
+					className="videodetails__infos__name"
+					data-testId="videodetails_name">
+					{data.video.name}
+				</h1>
+				<h2
+					className="videodetails__infos__duration"
+					data-testId="videodetails_duration">
 					{data.video.duration} s
 				</h2>
 			</div>
@@ -47,7 +53,11 @@ const VideoDetails = (props) => {
 					poster={data.video.poster}
 				/>
 			</div>
-			<div className="videodetails__description">{data.video.description}</div>
+			<div
+				className="videodetails__description"
+				data-testId="videodetails_description">
+				{data.video.description}
+			</div>
 			<div className="videodetails__similar">
 				<h2 className="videodetails__similar__title"> SIMILAR CONTENT </h2>
 				<div className="videodetails__similar__list">

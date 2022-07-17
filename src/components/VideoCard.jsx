@@ -4,7 +4,9 @@ import "./videocard.css";
 const VideoCard = (video) => {
 	return (
 		<div className="videoCard">
-			<h3 className="videoCard__title">{video.name}</h3>
+			<h3 className="videoCard__title" data-testid="videoCard-title">
+				{video.name}
+			</h3>
 			<div className="videoCard__container">
 				{video.poster ? (
 					<img
