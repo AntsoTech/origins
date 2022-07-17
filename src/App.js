@@ -13,7 +13,6 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			{/* <VideoDetails videoId="93dc737e-a477-48a7-9cbb-8c8ccb19b0f0" /> */}
 			<Routes>
 				<Route path="/" element={<Homepage />} />
 				<Route path="/testimoniales" element={<Testimoniales />} />
